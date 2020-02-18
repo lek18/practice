@@ -22,51 +22,77 @@ class LinkedList:
             print(temp.data)
             temp = temp.next
 
+llist = LinkedList()
+llist.head
 
-def test_link_list():
-    llist = LinkedList()
+n1 = Node(1)
+n2 = Node(2)
+n3 = Node(3)
+n4 = Node(4)
+# attached 1 as the head
+llist.head = n1
+llist.head.next = n2
+llist.head.next.next = n3
+llist.head.next.next.next = n4
 
-    llist.head = Node(1)
-    second = Node(2)
-    third = Node(3)
+llist.head.data
+llist.head.next.data
+llist.head.next.next.data
+llist.head.next.next.next.data
 
-    ''' 
-    Three nodes have been created. 
-    We have references to these three blocks as head, 
-    second and third 
+a = range(0,100)
 
-    llist.head	 second			 third 
-        |			 |				 | 
-        |			 |				 | 
-    +----+------+	 +----+------+	 +----+------+ 
-    | 1 | None |	 | 2 | None |	 | 3 | None | 
-    +----+------+	 +----+------+	 +----+------+ 
-    '''
+# traversing a linked list
+class Node:
+    def __init__(self, dataval=None):
+        self.dataval = dataval
+        self.nextval = None
 
-    llist.head.next = second;  # Link first node with second
+class SLinkedList:
+    def __init__(self):
+        self.headval = None
 
-    ''' 
-    Now next of first Node refers to second. So they 
-    both are linked. 
+    def listprint(self):
+        printval = self.headval
+        while printval is not None:
+            print (printval.dataval)
+            printval = printval.nextval
 
-    llist.head	 second			 third 
-        |			 |				 | 
-        |			 |				 | 
-    +----+------+	 +----+------+	 +----+------+ 
-    | 1 | o-------->| 2 | null |	 | 3 | null | 
-    +----+------+	 +----+------+	 +----+------+ 
-    '''
+list = SLinkedList()
+list.headval = Node("Mon")
+e2 = Node("Tue")
+e3 = Node("Wed")
+e4 = Node("thue")
+# Link first Node to second node
+list.headval.nextval = e2
 
-    second.next = third;  # Link second node with the third node
+#list.headval.nextval.nextval = e3
+#list.headval.nextval.nextval=e3
+# Link second Node to third node. how are these two equivalent, e2 is separate from list.headval.nextval
+e2.nextval = e3
+e3.nextval = e4
 
-    ''' 
-    Now next of second Node refers to third. So all three 
-    nodes are linked. 
+list.listprint()
 
-    llist.head	 second			 third 
-        |			 |				 | 
-        |			 |				 | 
-    +----+------+	 +----+------+	 +----+------+ 
-    | 1 | o-------->| 2 | o-------->| 3 | null | 
-    +----+------+	 +----+------+	 +----+------+ 
-    '''
+class test1:
+    def __init__(self,name = None):
+        self.name = name
+
+a =test1()
+
+class test2:
+    def __init__(self,grade= None):
+        self.grade= grade
+
+
+a = test1()
+b = test2()
+
+a.name=b
+
+a.name.grade
+
+b.grade=20
+
+a.name.grade
+b.grade
