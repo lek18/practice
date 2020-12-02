@@ -74,25 +74,4 @@ e3.nextval = e4
 
 list.listprint()
 
-class test1:
-    def __init__(self,name = None):
-        self.name = name
 
-a =test1()
-
-class test2:
-    def __init__(self,grade= None):
-        self.grade= grade
-
-
-a = test1()
-b = test2()
-
-a.name=b
-
-a.name.grade
-
-b.grade=20
-
-a.name.grade
-b.grade

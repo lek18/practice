@@ -24,9 +24,28 @@ def cleanUrl(str):
     str = str.replace(right_string,"").split(".") [0]
     return str+".com"
 
+def cleanMarketCap(string):
+    # replace the dollar sign
+    string = string.replace("$","")
+
+    million_check = re.search("M",string)
+    billion_check = re.search("B",string)
+    if million_check is not None:
+        string = string.replace("M","")
+        value = float(string) * 1e6
+    elif billion_check is not None:
+        string = string.replace("B", "")
+        value = float(string) * 1e9
+    else:
+        value = float(string)
+
+    return value
+
+
 #apply function to both dataframes
 company_df['CompanyEmailDomain'] = company_df.apply(lambda x:x['CompanyEmailDomain'].lower(),axis=1)
 yahoo_df['Domain'] = yahoo_df.apply(lambda x:cleanUrl(x['Domain']),axis=1)
+yahoo_df['MarketCap'] = yahoo_df.apply(lambda x:cleanMarketCap(x['MarketCap']),axis=1)
 
 #Make employee numbers integers as opposed to string
 yahoo_df['Num_Employees'] = yahoo_df.apply(lambda x:int(re.sub('[^0-9]+','',str(x['Num_Employees']))),axis=1)
@@ -82,6 +101,7 @@ top10_deviate5pct['deviation'] = abs((full_df['Num_Employees'] - full_df['EMPTOT
 # Sort asc it by the ones that are devaiting more
 top10_deviate5pct['max_rank'] = top10_deviate5pct['deviation'].rank(method='max')
 top10_deviate5pct = top10_deviate5pct.sort_values(['deviation'], ascending=True)
+top10_deviate5pct.to_csv(path+"top10_deviate5pct.csv",index=False)
 
 
 #Top below - well lets just change top10_deviate5pct a bit
@@ -90,12 +110,12 @@ bottom10_stringent['deviation'] = abs((bottom10_stringent['Num_Employees'] - bot
 # Sort asc it by the ones that are devaiting more
 bottom10_stringent['max_rank'] = bottom10_stringent['deviation'].rank(method='max')
 bottom10_stringent = bottom10_stringent.sort_values(['deviation'], ascending=False)
+bottom10_stringent.to_csv(path+"bottom10_stringent.csv",index=False)
 
 
 ## Question 3 additional interesting visaulization
 
 #1. Want to have a look at MarketCap vs Num_Employees, LOCALSALES, USSALES ,EMPTOTAL  on all data that are within 5% deviation - i.e num of employes ~= emptotal
-
 import seaborn as sns
 corr = top10_deviate5pct[["Num_Employees", "LOCALSALES", "USSALES" ,"EMPTOTAL"]].corr()
 ax = sns.heatmap(
@@ -113,3 +133,19 @@ ax.set_xticklabels(
 a4_dimension = (11.7, 8.27)
 fig, ax = plt.subplots(figsize=a4_dimension)
 ax=sns.pairplot(company_df_web_pg[[ "LOCALSALES", "USSALES" ,"EMPTOTAL"]])
+
+## Lets try a tree map on category
+import squarify
+#tree map of Market cap
+df1 = yahoo_df[['Sector','MarketCap']].groupby(['Sector'],as_index=False).sum()
+squarify.plot(sizes=df1['MarketCap'], label=df['Sector'], alpha=.8 )
+plt.title("Tree map of total MarketCap By Sector")
+plt.axis('off')
+plt.show()
+
+#tree map of count distinct of Domain
+df2 = yahoo_df[['Sector','Domain']].drop_duplicates().groupby(['Sector'],as_index=False).count()
+squarify.plot(sizes=df2['Domain'], label=df2['Sector'], alpha=.8 )
+plt.title("Tree map of Distinct count Domain By Sector")
+plt.axis('off')
+plt.show()

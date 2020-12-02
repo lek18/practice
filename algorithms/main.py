@@ -1,5 +1,4 @@
-from src.algorithms1.two_sum_array import Solution
-from src.algorithms1.linked_list import  Node,LinkedList,test_link_list
+from src.algorithms1.link_list.linked_list import test_link_list
 
 
 def main():
