@@ -2,13 +2,7 @@ class Solution:
     def merge2Arrays(self, left_list, right_list):
         left_cursor = right_cursor = 0
         output = []
-        # print(right_cursor)
-        # print(left_cursor)
-        # print(len(right_list))
-        # print(len(left_list))
         while left_cursor < len(left_list) and right_cursor < len(right_list):
-            print(left_list[left_cursor])
-            print(right_list[right_cursor])
             if left_list[left_cursor] < right_list[right_cursor]:
                 output.append(left_list[left_cursor])
                 left_cursor += 1
