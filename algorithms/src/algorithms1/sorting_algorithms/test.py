@@ -1,7 +1,9 @@
 class Solution:
     def merge2Arrays(self, left_list, right_list):
-        left_cursor = right_cursor = 0
+        left_cursor = 0
+        right_cursor = 0
         output = []
+
         while left_cursor < len(left_list) and right_cursor < len(right_list):
             if left_list[left_cursor] < right_list[right_cursor]:
                 output.append(left_list[left_cursor])
@@ -9,8 +11,9 @@ class Solution:
             else:
                 output.append(right_list[right_cursor])
                 right_cursor += 1
-        output.append(left_list[left_cursor:])
-        output.append(right_list[right_cursor:])
+
+        output.extend(left_list[left_cursor:])
+        output.extend(right_list[right_cursor:])
 
         return output
 
