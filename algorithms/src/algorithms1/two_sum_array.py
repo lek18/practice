@@ -13,3 +13,10 @@ class Solution():
                 output = output + [[[difference,input_list[i]],[difference_dict[difference],i]]]
             difference_dict[input_list[i]]=i
         return output
+
+a = [1,1,1]
+b = Solution()
+b.twoSum(a,2)
+
+import collections
+collections.defaultdict(int)

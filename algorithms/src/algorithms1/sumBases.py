@@ -42,3 +42,14 @@ sum_2Base3(num1,num2)
 num1="2222"
 num2="1122"
 sum_2Base3(num1,num2)
+
+a = [1,2,3,4]
+a.extend()
+
+def factorial(n):
+    if n<=1:
+        return 1
+    return n*factorial(n-1)
+
+factorial(4)
+
