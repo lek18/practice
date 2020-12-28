@@ -1,6 +1,5 @@
 # Node class
 class Node:
-
     # Function to initialize the node object
     def __init__(self, data):
         self.data = data  # Assign data
@@ -16,31 +15,41 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def printList(self):
-        temp = self.head
-        while (temp):
-            print(temp.data)
-            temp = temp.next
+    def recursiveHelper(self,node):
+        if node:
+            print(node.data)
+            self.recursiveHelper(node.next)
 
-llist = LinkedList()
-llist.head
+    def printList(self,method):
+        if method == "iterative":
+            temp = self.head
+            while temp:
+                print(temp.data)
+                temp = temp.next
+        elif method =="recrusive":
+            current = self.head
+            self.recursiveHelper(node = current)
+
+        else:
+            return "Method not possible"
+
 
 n1 = Node(1)
 n2 = Node(2)
 n3 = Node(3)
 n4 = Node(4)
+n1.next = n2
+n2.next = n3
+n3.next = n4
+
+llist = LinkedList()
+llist.head
+
 # attached 1 as the head
 llist.head = n1
-llist.head.next = n2
-llist.head.next.next = n3
-llist.head.next.next.next = n4
+llist.printList(method="iterative")
+llist.printList(method="recrusive")
 
-llist.head.data
-llist.head.next.data
-llist.head.next.next.data
-llist.head.next.next.next.data
-
-a = range(0,100)
 
 # traversing a linked list
 class Node:
