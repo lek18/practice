@@ -97,12 +97,12 @@ class BinaryTree:
             return False
         else:
             return self._checkBST(current_node= current_node)
-    def  _checkBST(self,current_node):
-        if current_node.left is not None and current_node.right is not None:
-            if current_node.left.val < current_node.val and current_node.right.val>current_node.val:
-                self._checkBST(current_node.left)
-                self._checkBST(current_node.right)
-        elif current_node.left is not None and
+    # def  _checkBST(self,current_node):
+    #     if current_node.left is not None and current_node.right is not None:
+    #         if current_node.left.val < current_node.val and current_node.right.val>current_node.val:
+    #             self._checkBST(current_node.left)
+    #             self._checkBST(current_node.right)
+    #     elif current_node.left is not None and
 #      5
 #  3       8
 #2  4    6  7
