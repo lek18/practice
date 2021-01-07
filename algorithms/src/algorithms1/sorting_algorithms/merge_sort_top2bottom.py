@@ -20,6 +20,8 @@ def merge_array(left_list, right_list):
             output.append(left_list[left_pointer])
             left_pointer += 1
         else:
+
+
             output.append(right_list[right_pointer])
             right_pointer += 1
 

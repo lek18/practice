@@ -53,3 +53,12 @@ def factorial(n):
 
 factorial(4)
 
+def convert2BaseN(num,base):
+    quotient = num//base
+    ans = [num%base]
+    while quotient>0:
+        remainder = quotient%base
+        ans.insert(0,remainder)
+        quotient = quotient//base
+    #ans.insert(0,remainder)
+    return ans
