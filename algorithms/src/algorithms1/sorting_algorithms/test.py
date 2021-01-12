@@ -88,3 +88,44 @@
 #         max_cnt = max(count, max_cnt)
 #
 # return max_cnt
+
+
+def funct( string):
+    # if string == "1":
+    #     return "11"
+    # if string  =="11":
+    #     return "21"
+    mydict = {}
+    # print(string)
+    orderlist = []
+    for ch in string:
+        print(ch)
+        if ch not in mydict and not mydict:
+            mydict[ch] = 1
+        elif ch not in mydict and bool(mydict):
+
+            ans = ''
+            print("here")
+            for keys in mydict:
+                ans += str(mydict[keys]) + str(keys)
+            print("ans",ans)
+
+            orderlist.append(ans)
+            print(orderlist)
+            mydict = {}
+            mydict[ch] = 1
+        else:
+            mydict[ch] += 1
+        print(mydict)
+    if not not mydict:
+        ans = ''
+        print("here")
+        for keys in mydict:
+            ans += str(mydict[keys]) + str(keys)
+        print("ans", ans)
+
+        orderlist.append(ans)
+    print(orderlist)
+    return ''.join(orderlist)
+
+funct('111221')
