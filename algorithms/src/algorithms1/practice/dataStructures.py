@@ -26,8 +26,8 @@ def findDuplicates(nums):
     while True:
         tortoise = nums[tortoise] # 1 step jump
         hare = nums[nums[hare]]   # 2 step jump
-        print("Hey tortoise",tortoise)
-        print("hey hare",hare)
+        # print("Hey tortoise",tortoise)
+        # print("hey hare",hare)
         if tortoise==hare:  # stop when both meet!
             break
     ptr1 = nums[0]
@@ -36,4 +36,4 @@ def findDuplicates(nums):
         ptr1 = nums[ptr1]
         ptr2 = nums[ptr2]
     return ptr1
-findDuplicates([10,9,2,3,2,4,5,8,6,7,1])
+findDuplicates([1,2,3,4,5,5])
