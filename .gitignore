@@ -2,3 +2,5 @@
 *.iml
 *.xml
 *.icloud
+.DS_Store
+algorithms/.DS_Store
