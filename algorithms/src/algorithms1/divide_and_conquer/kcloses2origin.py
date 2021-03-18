@@ -1,4 +1,7 @@
 import random
+
+# uses quick sleeciton sort
+
 class Solution(object):
     def kClosest(self, points, K):
         dist = lambda i: points[i][0]**2 + points[i][1]**2
