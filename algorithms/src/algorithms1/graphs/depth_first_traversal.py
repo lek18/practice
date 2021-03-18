@@ -18,12 +18,24 @@ def dfs(graph,start,visited = None):
         visited = set()
     visited.add(start)
     print(start)
-
-    if start in graph:
-        for next in graph[start] - visited:
-            dfs(graph,next,visited)
-
+    # if start in graph:
+    for next in graph[start] - visited:
+        dfs(graph,next,visited)
     return visited
+
+# breath first search
+# this uses a queue
+import collections
+def bfs2(graph, start):
+    seen, queue = set([start]), [start]
+    while queue:
+        vertex = queue.pop(0)
+        print(vertex)
+        for node in graph[vertex]:
+            if node not in seen:
+                seen.add(node)
+                queue.append(node)
+
 
 
 ## disconnected graph
@@ -43,6 +55,27 @@ dfs(start=0,graph=myDisconnectedGraph.gdict)
 
 ### a not disconnected graph
 
-gdict = { 0 : set([1,2)}
+gdict = { "a" : set(["b","c"]),
+                "b" : set(["a", "d"]),
+                "c" : set(["a", "d"]),
+                "d" : set(["e"]),
+                "e" : set(["a"])
+                }
 
-dfs(gdict,0)
+# dfs(gdict,0)
+bfs(gdict,"b") == bfs2(gdict,"b")
+
+def bfs(graph, startnode):
+# Track the visited and unvisited nodes using queue
+        seen, queue = set([startnode]), collections.deque([startnode])
+        while queue:
+            vertex = queue.popleft()
+            print(vertex)
+            for node in graph[vertex]:
+                if node not in seen:
+                    seen.add(node)
+                    queue.append(node)
+
+
+bfs2(gdict,"a")
+dfs(gdict,"a")
