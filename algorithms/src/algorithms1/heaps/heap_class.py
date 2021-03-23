@@ -5,6 +5,7 @@ class BinaryHeap:
     # insert item to end of heap
     # then correct its position
     def insert(self,item):
+        # takes nlogn
         self._heap.append(item)
         self.correct_item_post(node_position=len(self._heap)-1)
         # self._perc_up(len(self._heap)-1)
@@ -23,6 +24,7 @@ class BinaryHeap:
             parent_position = (child_position-1)//2
 
     def delete(self):
+        # takes logn
         # get the min value
         min_value = self._heap[0]
 
