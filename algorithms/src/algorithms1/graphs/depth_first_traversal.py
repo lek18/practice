@@ -12,70 +12,37 @@ class graph:
 
     # check for the visited and unvisited nodes - dfs
 
-def dfs(graph,start,visited = None):
-    # steps = []
+# this uses a se
+
+
+
+
+def dfs(graph,start,visited=None):
     if visited is None:
-        visited = set()
-    visited.add(start)
-    print(start)
-    # if start in graph:
-    for next in graph[start] - visited:
-        dfs(graph,next,visited)
+        visited=[]
+    if start not in visited:
+        visited.append(start)
+        print(start)
+        # track.append(start)
+        # visit every node adjacent to start
+        for neighbour in graph[start]:
+            dfs(graph,neighbour,visited)
     return visited
 
-# breath first search
-# this uses a queue
-import collections
-def bfs2(graph, start):
-    seen, queue = set([start]), [start]
-    while queue:
-        vertex = queue.pop(0)
-        print(vertex)
-        for node in graph[vertex]:
-            if node not in seen:
-                seen.add(node)
-                queue.append(node)
+
+graph = {
+    'A' : {'B','C'},
+    'B' : {'D', 'E'},
+    'C' : {'F','A'},
+    'D' : {},
+    'E' : {'F'},
+    'F' : {'C'}
+}
+dfs(graph,"E")
 
 
 
-## disconnected graph
-disc_vertices = [[0,2],[2,1],[1,0],[1,2],[0,3]]
-
-#create graph
-myDisconnectedGraph = graph()
-for node1,node2 in disc_vertices:
-    myDisconnectedGraph.addVertex(node1,node2)
 
 
-myDisconnectedGraph.gdict
-
-myDisconnectedGraph.addVertex(node1,node2)
-
-dfs(start=0,graph=myDisconnectedGraph.gdict)
-
-### a not disconnected graph
-
-gdict = { "a" : set(["b","c"]),
-                "b" : set(["a", "d"]),
-                "c" : set(["a", "d"]),
-                "d" : set(["e"]),
-                "e" : set(["a"])
-                }
-
-# dfs(gdict,0)
-bfs(gdict,"b") == bfs2(gdict,"b")
-
-def bfs(graph, startnode):
-# Track the visited and unvisited nodes using queue
-        seen, queue = set([startnode]), collections.deque([startnode])
-        while queue:
-            vertex = queue.popleft()
-            print(vertex)
-            for node in graph[vertex]:
-                if node not in seen:
-                    seen.add(node)
-                    queue.append(node)
 
 
-bfs2(gdict,"a")
-dfs(gdict,"a")
