@@ -14,9 +14,9 @@ class Solution():
             difference_dict[input_list[i]]=i
         return output
 
-a = [1,1,1]
+a = [-1, 0, 1, 2, -1]
 b = Solution()
-b.twoSum(a,2)
+b.twoSum(a,4)
 
 import collections
 collections.defaultdict(int)
