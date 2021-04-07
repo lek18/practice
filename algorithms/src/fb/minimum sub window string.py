@@ -58,6 +58,8 @@ def minWindow(self, s, t):
             # Keep expanding the window once we are done contracting.
         r += 1
     return "" if ans[0] == float("inf") else s[ans[1]: ans[2] + 1]
+
+
 s = "AAAAAAAABECODEBANC"
 t = "AABC"
 minWindow(s,t)
