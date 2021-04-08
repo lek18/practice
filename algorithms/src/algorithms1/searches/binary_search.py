@@ -27,5 +27,5 @@ def bSearch( arr, low, high, target):
             return True
     return False
 
-x = [7,1,14,11]
-bSearch(x,0,len(x)-1,7)
+x = [0,1,2]
+bSearch(x,0,len(x)-1,)
