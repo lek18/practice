@@ -1,10 +1,11 @@
-from src.algorithms1.link_list.linked_list import test_link_list
+from src.algorithms1.link_list.linked_list import Node
 
 
 def main():
     #Do Stuff here
     # Start with the empty list
-    test_link_list()
+    # test_link_list()
+    print("Hello")
 
 if __name__=='__main__':
     main()

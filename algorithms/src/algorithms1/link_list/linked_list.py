@@ -51,36 +51,36 @@ llist.printList(method="iterative")
 llist.printList(method="recrusive")
 
 
-# traversing a linked list
-class Node:
-    def __init__(self, dataval=None):
-        self.dataval = dataval
-        self.nextval = None
+# # traversing a linked list
+# class Node:
+#     def __init__(self, dataval=None):
+#         self.dataval = dataval
+#         self.nextval = None
 
-class SLinkedList:
-    def __init__(self):
-        self.headval = None
+# class SLinkedList:
+#     def __init__(self):
+#         self.headval = None
 
-    def listprint(self):
-        printval = self.headval
-        while printval is not None:
-            print (printval.dataval)
-            printval = printval.nextval
+#     def listprint(self):
+#         printval = self.headval
+#         while printval is not None:
+#             print (printval.dataval)
+#             printval = printval.nextval
 
-list = SLinkedList()
-list.headval = Node("Mon")
-e2 = Node("Tue")
-e3 = Node("Wed")
-e4 = Node("thue")
-# Link first Node to second node
-list.headval.nextval = e2
+# list = SLinkedList()
+# list.headval = Node("Mon")
+# e2 = Node("Tue")
+# e3 = Node("Wed")
+# e4 = Node("thue")
+# # Link first Node to second node
+# list.headval.nextval = e2
 
-#list.headval.nextval.nextval = e3
-#list.headval.nextval.nextval=e3
-# Link second Node to third node. how are these two equivalent, e2 is separate from list.headval.nextval
-e2.nextval = e3
-e3.nextval = e4
+# #list.headval.nextval.nextval = e3
+# #list.headval.nextval.nextval=e3
+# # Link second Node to third node. how are these two equivalent, e2 is separate from list.headval.nextval
+# e2.nextval = e3
+# e3.nextval = e4
 
-list.listprint()
+# list.listprint()
 
 
