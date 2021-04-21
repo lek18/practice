@@ -2,16 +2,6 @@ x= ["(())()"]
 
 #function to check whether string s is a balance parenthis strings
 
-l=1
-l=2
-r=1
-r=2
-reset
-l=1
-r=1
-0
-l!=0
-
 def checkString(s):
     l=r=0
     #count =0
