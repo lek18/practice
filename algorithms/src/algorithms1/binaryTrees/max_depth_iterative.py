@@ -9,7 +9,7 @@ class Solution:
             stack.append((1, root))
 
         depth = 0
-        while stack != []:
+        while stack:
             current_depth, root = stack.pop()
             if root is not None:
                 depth = max(depth, current_depth)
