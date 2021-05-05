@@ -5,8 +5,9 @@ class TreeNode:
         self.left = None
         self.right = None
 from collections import defaultdict,deque
+
 class Solution:
-    def verticalOrder(self, root: TreeNode) -> list[list[int]]:
+    def verticalOrder(self, root):
         if root is None:
             return []
 

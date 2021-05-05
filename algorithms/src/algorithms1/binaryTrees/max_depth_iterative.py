@@ -4,10 +4,12 @@ class Solution:
         :type root: TreeNode
         :rtype: int
         """
-        stack = []
-        if root is not None:
-            stack.append((1, root))
 
+        if root is None:
+            return 0
+
+
+        stack = [[1, root]]
         depth = 0
         while stack:
             current_depth, root = stack.pop()
