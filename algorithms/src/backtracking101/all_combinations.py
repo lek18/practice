@@ -8,10 +8,10 @@ class Solution(object):
 
         def backtrack(first=0, curr=[]):
             # if the combination is done
-            if k == len(curr):
-                if curr[:] not in ans:
-                    ans.append(curr[:])
-
+            print(curr)
+            if k == len(curr) and curr[:] not in ans:
+                ans.append(curr[:])
+                return
             for i in range(first, N):
                 # add nums[i] into the current combination
                 curr.append(nums[i])
@@ -27,4 +27,4 @@ class Solution(object):
         return ans
 
 test1 = Solution()
-test1.combine([1,1,1,2],2)
+print(test1.combine([1,1,1,2],1))

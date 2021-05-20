@@ -48,3 +48,32 @@ class Solution:
 test1 = Solution()
 test1.permute(nums=["1","2","3","4"])
 # test1.validCombination([1,2,2])
+
+
+def toInt(x):
+
+    i = -len(x)
+    pwr = len(x)-1
+    total = 0
+    while i<0:
+        # print(i,pwr)
+        total += 10**pwr * (ord(x[i])-ord("0"))
+        pwr-=1
+        i+=1
+
+    return total
+
+
+toInt("100")
+
+toInt("50563400")
+
+ch = ":"
+
+lwr1,upr1 = ord("0"), ord("9")
+lwr2,upr2 = ord("a"), ord("z")
+lwr3,upr3 = ord("A"), ord("Z")
+val = ord(ch)
+
+
+not ( (val >=lwr1 and val<=upr1) or (val >=lwr2 and val<=upr2) or (val >=lwr3 and val<=upr3) )
