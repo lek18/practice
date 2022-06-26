@@ -20,6 +20,7 @@ async def retry_w_backoff(fn, max_retries=10):
             await sleep(retries * 1)
             print(f"retrying: {retries}th time")
 
+## your get request
 async def v2_request(var, timeout, api_key, url):
     async with sem, aiohttp.ClientSession(raise_for_status=False) as session:
         with Timer('v2_req', print):
@@ -57,8 +58,8 @@ async def wrapper_func2(input1, api_key, url):
     with Timer("span_match_companies", print):
         unique_inputs = list(set(input1))
         reqs = [
-            asyncio.create_task(match_company(company_name, api_key, url))
-            for company_name in unique_inputs
+            asyncio.create_task(wrapper_func1(inputs, api_key, url))
+            for inputs in unique_inputs
         ]
         results = await asyncio.gather(*reqs)
         output_lookup = dict(zip(unique_inputs, results))
