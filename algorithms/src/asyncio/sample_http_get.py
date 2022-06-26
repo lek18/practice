@@ -25,11 +25,12 @@ async def v2_request(var, timeout, api_key, url):
         with Timer('v2_req', print):
             url = url
             headers = {"X-Api-Key": api_key, "Content-Type": "application/json"}
+            # could be get input
             data = {
                 "input1": var
             }
-            async with session.post(
-                url, data=json.dumps(data), timeout=timeout, headers=headers
+            async with session.get(
+                url, data=data, timeout=timeout, headers=headers
             ) as response:
                 if response.status == 404:
                     return None
