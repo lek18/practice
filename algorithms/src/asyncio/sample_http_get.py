@@ -69,7 +69,8 @@ async def wrapper_func2(input1, api_key, url):
 API_KEY = "your key if needed"
 api_url = "YOUR URL GET/POST"
 
-output = await match_companies(input_names=[],
+## using the batch
+output = await wrapper_func2(input_names=[],
                                api_key=API_KEY,
                                url=api_url
                                )
