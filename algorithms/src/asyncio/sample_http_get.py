@@ -55,7 +55,7 @@ async def wrapper_func1(input1, api_key, url):
 # batch async calls to  endpoint
 # Only unique set of inputt are queried
 # Return value is respone from endpoint
-async def wrapper_func2(input1, api_key, url):
+async def batch_4_wrapper_func1(input1, api_key, url):
     with Timer("span_match_companies", print):
         unique_inputs = list(set(input1))
         reqs = [
@@ -70,7 +70,7 @@ API_KEY = "your key if needed"
 api_url = "YOUR URL GET/POST"
 
 ## using the batch
-output = await wrapper_func2(input_names=[],
-                               api_key=API_KEY,
-                               url=api_url
-                               )
+output = await batch_4_wrapper_func1(input_names=[],
+                                     api_key=API_KEY,
+                                     url=api_url
+                                     )
