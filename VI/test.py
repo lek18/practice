@@ -18,4 +18,4 @@ import matplotlib.pyplot as plt
 
 plt.hist(zs)
 
-ys = list(map(lambda x:np.random.poisson(x[1]))
+# ys = list(map(lambda x:np.random.poisson(x[1])))
